@@ -1,6 +1,6 @@
 # hexo-ai-bytelf
 
-[NPM发布地址](https://www.npmjs.com/package/hexo-ai-byteelf) | [示例站点](https://blog.liushen.fun/)
+[NPM发布地址](https://www.npmjs.com/package/hexo-ai-bytelf) | [示例站点](https://blog.devnest.top/)
 
 使用 AI 自动为 Hexo 文章生成摘要和思维导图。支持Kimi、腾讯混元、OpenAI 或任何兼容 OpenAI 协议的模型接口，支持并发处理、自定义摘要字段、内容清洗、分级调试输出、摘要覆盖控制等功能。
 
