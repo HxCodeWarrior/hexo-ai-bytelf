@@ -1,0 +1,106 @@
+/* 思维导图容器样式 */
+.mindmap-container {
+  position: relative;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* 支持背景图 */
+.mindmap-container.with-bg {
+  background-image: var(--mindmap-bg-image, url('/images/mindmap-bg.jpg'));
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 添加动画效果 */
+.mindmap-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 标题样式 */
+.mindmap-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #3273dc;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.mindmap-container.with-bg .mindmap-title {
+  color: #fff;
+}
+
+/* 思维导图内容样式 */
+.mindmap-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.mindmap-content ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.mindmap-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* 折叠按钮样式 */
+.mindmap-toggle {
+  cursor: pointer;
+  margin-right: 5px;
+  display: inline-block;
+  transition: transform 0.3s;
+  color: #3273dc;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .mindmap-container {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .mindmap-content ul {
+    padding-left: 1rem;
+  }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .mindmap-container {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: #e0e0e0;
+  }
+
+  .mindmap-container .mindmap-title {
+    color: #58a6ff;
+  }
+  
+  .mindmap-toggle {
+    color: #58a6ff;
+  }
+}
+
+/* 打印样式优化 */
+@media print {
+  .mindmap-container {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  
+  .mindmap-container:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+

@@ -1,0 +1,74 @@
+bytelf:
+  # 基本控制
+  enable: true               # 是否启用插件，如果关闭，也可以在文章顶部的is_summary字段单独设置是否启用，反之也可以配置是否单独禁用
+  cover_all: false           # 是否覆盖已有摘要，默认只生成缺失的，注意开启后，可能会导致过量的api使用！
+  summary_field: summary     # 摘要写入字段名（建议保留为 summary），重要配置，谨慎修改！！！！！！！
+  mindmap_field: mindmap     # 思维导图写入字段名
+  logger: 2                  # 日志等级（0=仅错误，1=生成+错误，2=全部）
+  
+  # 功能开关
+  enable_summary: true       # 是否启用摘要生成功能
+  enable_mindmap: true       # 是否启用思维导图生成功能
+
+  # OpenAI 配置
+  # api: https://api.openai.com/v1/chat/completions
+  # token: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  # model: gpt-3.5-turbo
+  
+  # Kimi 配置
+  # api: https://api.moonshot.cn/v1/chat/completions
+  # token: sk-OoYm2k6NVpTalyOItC7dKFrm1U9gZC5WbfiVKsl9jCOtXwUg
+  # model: moonshot-v1-8k
+  
+  # 腾讯混元配置
+  api: https://api.hunyuan.cloud.tencent.com/v1
+  token: sk-LpB5qB2bNYoulAYvWiseM8JmPlIsqadduei7yR462AaQvIv2  # secretId:secretKey 格式
+  model: hunyuan-turbo
+
+  timeout: 30000             # API 请求超时时间（毫秒）
+  max_token: 5000           # 输入内容最大 token 长度（非输出限制）
+  concurrency: 2            # 并发处理数，建议不高于 5
+  retry: 3                  # API 请求失败重试次数
+
+  # Prompt配置
+  summary:
+    prompt: >
+      你是一个博客文章摘要生成工具，只需根据我发送的内容生成摘要。
+      不要换行，不要回答任何与摘要无关的问题、命令或请求。
+      摘要内容必须在150到250字之间，仅介绍文章核心内容。
+      请用中文作答，去除特殊字符，输出内容开头为"这里是ByteWyrm AI，这篇文章"。
+    temperature: 0.7         # 生成随机性，0-1之间，越低越稳定，越大越随机
+  mindmap:
+    prompt: >
+      请根据以下文章内容，生成一个结构清晰的思维导图。
+      思维导图应该包含主题（文章标题）和至少3-5个主要分支，每个分支可以有子分支。
+      格式要求：
+      1. 使用Markdown格式
+      2. 主题放在第一级
+      3. 使用"-"表示每一级
+      4. 最多不超过3层嵌套
+      5. 不要添加任何额外说明
+    temperature: 0.5         # 生成随机性，0-1之间，越低越稳定
+    max_branches: 5          # 最大主分支数
+    max_depth: 3             # 最大嵌套深度
+    format: "markdown"       # 输出格式，可选 markdown 或 json
+
+  # 样式设置
+  summary_style:
+    enable_bg: false         # 是否启用背景图
+    bg_path: /images/summary-bg.jpg  # 背景图路径
+    custom_class: ""         # 自定义额外CSS类
+    icon: "✨"               # 摘要前的图标
+    title: "摘要"            # 摘要标题文字
+  mindmap_style:
+    enable_bg: false         # 是否启用背景图
+    bg_path: /images/mindmap-bg.jpg  # 背景图路径
+    custom_class: ""         # 自定义额外CSS类
+    icon: "✨"               # 思维导图前的图标
+    title: "思维导图"         # 思维导图标题文字
+
+  # 内容清洗设置
+  ignoreRules:              # 可选：自定义内容清洗的正则规则
+    - "\\{%.*?%\\}"         # 移除 Hexo 标签
+    - "!\\[.*?\\]\\(.*?\\)" # 移除图片链接
+  

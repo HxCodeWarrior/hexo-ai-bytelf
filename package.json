@@ -1,0 +1,43 @@
+{
+  "name": "hexo-ai-bytelf",
+  "version": "1.0.0",
+  "description": "Hexo 插件：使用 AI（如 ChatGPT、kimi、腾讯混元）自动为 Markdown 博文生成摘要和思维导图，并将摘要写入 front-matter，可控制并发请求。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HxCodeWarrior/hexo-ai-bytelf"
+  },
+  "keywords": [
+    "hexo",
+    "hexo-plugin",
+    "chatgpt",
+    "openai",
+    "ai",
+    "summary",
+    "markdown",
+    "front-matter",
+    "hexo-generator",
+    "blog",
+    "mindmap"
+  ],
+  "author": "HxCodeWarrior",
+  "license": "MIT",
+  "homepage": "https://github.com/HxCodeWarrior/hexo-ai-bytelf",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "hexo-front-matter": "^4.2.1",
+    "node-fetch": "^3.3.2",
+    "p-limit": "^2.3.0"
+  },
+  "files": [
+    "index.js",
+    "ai.js",
+    "strip.js",
+    "mindmap.js",
+    "README.md",
+    "assets"
+  ]
+}

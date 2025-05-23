@@ -1,0 +1,77 @@
+/* ByteElf 摘要样式 */
+.byteelf-summary {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: rgba(245, 247, 250, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 支持背景图 */
+.byteelf-summary.with-bg {
+  background-image: var(--summary-bg-image, url('/images/summary-bg.jpg'));
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 添加动画效果 */
+.byteelf-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题和图标 */
+.byteelf-summary::before {
+  content: attr(data-icon) " " attr(data-title);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #3273dc;
+  font-size: 1.1rem;
+}
+
+.byteelf-summary.with-bg::before {
+  color: #fff;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .byteelf-summary {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .byteelf-summary {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #e0e0e0;
+  }
+  
+  .byteelf-summary::before {
+    color: #58a6ff;
+  }
+}
+
+/* 打印样式优化 */
+@media print {
+  .byteelf-summary {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  
+  .byteelf-summary:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
