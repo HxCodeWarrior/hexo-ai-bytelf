@@ -1,0 +1,46 @@
+{
+  "name": "hexo-ai-bytelf",
+  "version": "1.2.1",
+  "description": "Hexo 插件：使用 AI（如 ChatGPT 或腾讯混元）自动为 Markdown 博文生成摘要，并将摘要写入 front-matter，可控制并发请求。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willow-god/hexo-ai-bytelf"
+  },
+  "keywords": [
+    "hexo",
+    "hexo-plugin",
+    "chatgpt",
+    "kimi",
+    "qwq",
+    "tencent",
+    "xunfei",
+    "openai",
+    "ai",
+    "summary",
+    "markdown",
+    "front-matter",
+    "hexo-generator",
+    "blog"
+  ],
+  "author": "ByteWyrm",
+  "license": "MIT",
+  "homepage": "https://github.com/willow-god/hexo-ai-bytelf",
+  "dependencies": {
+    "openai": "^4.0.0",
+    "p-limit": "^3.1.0",
+    "axios": "^1.6.2",
+    "node-fetch": "^2.7.0",
+    "hexo-front-matter": "^4.2.1",
+    "hexo-fs": "^5.0.0"
+  },
+  "files": [
+    "index.js",
+    "ai.js",
+    "strip.js",
+    "README.md"
+  ]
+}
